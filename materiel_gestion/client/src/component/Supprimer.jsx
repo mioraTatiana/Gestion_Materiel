@@ -12,7 +12,7 @@ function Supprimer() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:8081/'+id)
+        axios.get('http://localhost:8081/selection/'+id)
         .then((res) => {
             console.log(res);
             setmaterielList(res.data);
@@ -22,7 +22,7 @@ function Supprimer() {
 
         
     const supprimerMateriel = () => {
-        axios.delete('http://localhost:8081/'+id)
+        axios.delete('http://localhost:8081/delete/'+id)
         .then((res)=>{
             console.log(res); 
 
@@ -43,13 +43,10 @@ function Supprimer() {
                 <div class="modal-body">
                     <form action="">
                         <label for="Quantite" class="form-label h6"> N°Materiel </label>
-                        <input type="number" name="Quantite" id="" class="form-control"/>
+                        <input type="number" name="Quantite" id="" value={id} class="form-control"/>
 
 
-                        <label for="Designation" class="form-label h6"> Designation </label>
-                        <input type="text" name="Designation" id="" class="form-control mb-1"/>
-
-                        <button type="button" class="btn btn-danger float-end mt-3" onClick={() => supprimerMateriel}>Supprimer</button>
+                        <button type="button" class="btn btn-danger float-end mt-3" onClick={supprimerMateriel}>Supprimer</button>
 
                     </form>
                 </div>

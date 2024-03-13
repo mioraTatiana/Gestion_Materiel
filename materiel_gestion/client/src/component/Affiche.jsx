@@ -36,27 +36,26 @@ function Affiche() {
         })
         .catch(err => console.log(err));
 
-        axios.get('http://localhost:8081/bon', )
+        axios.get('http://localhost:8081/selectBon/bon', )
         .then((res)=>{
             setBon(res.data);
             console.log(res)
         })
         .catch(err => console.log(err));
 
-        axios.get('http://localhost:8081/mauvais', )
+        axios.get('http://localhost:8081/requette/mauvais', )
         .then((res)=>{
             setMauvais(res.data);
             console.log(res)
         })
         .catch(err => console.log(err));
 
-        axios.get('http://localhost:8081/abime', )
+        axios.get('http://localhost:8081/query/abime', )
         .then((res)=>{
             setAbime(res.data);
             console.log(res)
         })
         .catch(err => console.log(err));
-
 
 
     },[])
@@ -78,11 +77,7 @@ function Affiche() {
                             <input type="text" name="Designation" id="" className="form-control mb-1" onChange={(event) =>{setDesignation(event.target.value)}}/>
 
                             <label for="Etat" className="form-label h6 "> Etat </label>
-                            <select name="Etat" id="" className="form-select mb-1" onChange={(event) =>{setEtat(event.target.value)}}>
-                                <option value="bon">bon</option>
-                                <option value="mauvais">mauvais</option>
-                                <option value="abime" >abime</option>
-                            </select>
+                            <input type="text" name="Etat" className="form-control" placeholder='bon ou mauvais ou abime' id="" onChange={(event) =>{setEtat(event.target.value)}}/>
 
                             <label for="Quantite" className="form-label h6"> Quantité </label>
                             <input type="number" name="Quantite" id="" className="form-control" onChange={(event) =>{setQuantite(event.target.value)}}/>
@@ -133,7 +128,7 @@ function Affiche() {
 
         <div className="border border-light-subtle border-2 shadow-sm rounded m-2 p-2 mt-3">
             <div className="h5">Etats des materiel</div>
-                {/* <form className="">
+                <form className="">
 
                     <div className="row mb-1">
                         <div className="col">
@@ -141,7 +136,7 @@ function Affiche() {
                             
                         </div>
                         <div className="col">
-                            <input type="number" name="Bon" id="" className="form-control form-control-sm border border-black"/>
+                            <input type="number" name="Bon" id="" value={Bon[0].quantite} className="form-control form-control-sm border border-black"/>
                         </div>
                     </div>
 
@@ -150,7 +145,7 @@ function Affiche() {
                             <label for="Mauvais" className="form-label">Mauvais</label>
                         </div>
                         <div className="col">
-                            <input type="number" name="Mauvais" id="" className="form-control form-control-sm border border-black"/>
+                            <input type="number" name="Mauvais" id="" value={Mauvais[0].quantiteMauvais} className="form-control form-control-sm border border-black"/>
                         </div>
                     </div>
 
@@ -159,30 +154,12 @@ function Affiche() {
                             <label for="abime" className="form-label">Abimé</label>
                         </div>
                         <div className="col">
-                            <input type="number" name="abime" id="" className="form-control form-control-sm border border-black"/>
+                            <input type="number" name="abime" id="" value={Abime[0].quantiteAbime} className="form-control form-control-sm border border-black"/>
                         </div>
                     </div>
 
-                </form> */}
+                </form>
 
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th scope='col' className=''>Bon</th>
-                            <th scope='col'>Abime</th>
-                            <th scope='col'>Mauvais</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>{Bon.quantiteBon}</td>
-                            <td>{Abime.quantiteAbime}</td>
-                            <td>{Mauvais.quantiteMauvais}</td>
-
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
 

@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
     })
 })
 
-app.get("/:numMateriel", (req, res) => {
+app.get("/selection/:numMateriel", (req, res) => {
     const numMateriel = req.params.numMateriel;
     const sql =" SELECT * FROM materiel WHERE numMateriel =?";
     db.query(sql, [numMateriel],(err, data) => {
@@ -33,7 +33,7 @@ app.get("/:numMateriel", (req, res) => {
     })
 })
 
-app.get("/abime1", (req, res) => {
+app.get("/query/abime", (req, res) => {
     const sql =" SELECT SUM(Quantite) AS quantiteAbime FROM materiel WHERE Etat = 'abime';";
     db.query(sql, (err, data) => {
         if(err) return res.json(err)
@@ -43,7 +43,7 @@ app.get("/abime1", (req, res) => {
     })
 })
 
-app.get("/mauvais", (req, res) => {
+app.get("/requette/mauvais", (req, res) => {
     const sql =" SELECT SUM(Quantite) AS quantiteMauvais FROM materiel WHERE Etat = 'mauvais'";
     db.query(sql, (err, data) => {
         if(err) return res.json(err)
@@ -56,8 +56,8 @@ app.get("/mauvais", (req, res) => {
 
 
 
-app.get("/bon", (req, res) => {
-    const sql =" SELECT SUM(Quantite) AS quantiteBon FROM materiel WHERE Etat = 'bon'";
+app.get("/selectBon/bon", (req, res) => {
+    const sql =" SELECT SUM(Quantite) AS quantite FROM materiel WHERE Etat = 'bon'";
     db.query(sql, (err, data) => {
         if(err) return res.json(err)
         // return res.send(data );
@@ -83,7 +83,7 @@ app.post("/create", (req, res) => {
     })
 })
 
-app.put("/update/:numMateriel", (req, res) => {
+app.put("/update/modifier/:numMateriel", (req, res) => {
     const sql ="UPDATE `materiel` SET `Designation`=?,`Etat`=?,`Quantite`=? WHERE `numMateriel`=?";
     
         const Designation = req.body.Designation;
