@@ -48,13 +48,13 @@ function Modifie() {
                     <form action="" onSubmit={modifierMateriel}>
       
                         <label for="Designation" className="form-label h6"> Designation </label>
-                        <input type="text" name="Designation" id="" value={materielList[0].Designation} className="form-control mb-1" onChange={(event) =>{setDesignation(event.target.value)}}/>
+                        <input type="text" name="Designation" id="" value={materielList.Designation} className="form-control mb-1" onChange={(event) =>{setDesignation(event.target.value)}}/>
     
                         <label for="Etat" className="form-label h6 "> Etat </label>
-                        <input type="text" name="Etat" className='form-control' value={materielList[0].Etat} placeholder='bon ou mauvais ou abime' id="" onChange={(event) =>{setEtat(event.target.value)}}/>
+                        <input type="text" name="Etat" className='form-control' value={materielList.Etat} placeholder='bon ou mauvais ou abime' id="" onChange={(event) =>{setEtat(event.target.value)}}/>
                         
                         <label for="Quantite" className="form-label h6"> Quantité </label>
-                        <input type="number" name="Quantite" id="" value={materielList[0].Quantite}  className="form-control" onChange={(event) =>{setQuantite(event.target.value)}}/>
+                        <input type="number" name="Quantite" id="" value={materielList.Quantite}  className="form-control" onChange={(event) =>{setQuantite(event.target.value)}}/>
                         </form>
                 </div>
   

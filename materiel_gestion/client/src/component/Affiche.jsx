@@ -9,9 +9,9 @@ function Affiche() {
     const [Etat, setEtat] = useState('');
     const [Quantite, setQuantite] = useState(0);
     const [materielList, setmaterielList] = useState([]);
-    const [Bon, setBon] = useState([]);
-    const [Mauvais, setMauvais] = useState([]);
-    const [Abime, setAbime] = useState([]);
+    const [Bon, setBon] = useState(0);
+    const [Mauvais, setMauvais] = useState(0);
+    const [Abime, setAbime] = useState(0);
 
     const navigate = useNavigate();
    
@@ -22,6 +22,7 @@ function Affiche() {
             console.log(res); 
 
             navigate('/');
+            window.location.reload();
             })
     }
 
