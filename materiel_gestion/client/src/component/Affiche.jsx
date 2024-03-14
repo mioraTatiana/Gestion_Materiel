@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../assets/bootstrap.min.css';
 import axios from 'axios';
+import '../index.css'
 
 
 function Affiche() {
@@ -9,9 +10,6 @@ function Affiche() {
     const [Etat, setEtat] = useState('');
     const [Quantite, setQuantite] = useState(0);
     const [materielList, setmaterielList] = useState([]);
-    const [Bon, setBon] = useState(0);
-    const [Mauvais, setMauvais] = useState(0);
-    const [Abime, setAbime] = useState(0);
 
     const navigate = useNavigate();
    
@@ -33,27 +31,6 @@ function Affiche() {
         axios.get('http://localhost:8081/', )
         .then((res)=>{
             setmaterielList(res.data);
-            console.log(res)
-        })
-        .catch(err => console.log(err));
-
-        axios.get('http://localhost:8081/selectBon/bon', )
-        .then((res)=>{
-            setBon(res.data);
-            console.log(res)
-        })
-        .catch(err => console.log(err));
-
-        axios.get('http://localhost:8081/requette/mauvais', )
-        .then((res)=>{
-            setMauvais(res.data);
-            console.log(res)
-        })
-        .catch(err => console.log(err));
-
-        axios.get('http://localhost:8081/query/abime', )
-        .then((res)=>{
-            setAbime(res.data);
             console.log(res)
         })
         .catch(err => console.log(err));
@@ -93,6 +70,8 @@ function Affiche() {
 
         <div id="Global" className=" border border-1 border-light-subtle rounded shadow-lg p-3 mt-5">
         <div className="h1 text-decoration-underline">Gestion des materiels</div>
+        <Link to={'/Etat'} className='btn btn-primary btn-lg m-2 float-start'>Etat</Link>
+
         <button type="button" className="btn btn-primary btn-lg float-end m-2" data-bs-toggle="modal" data-bs-target="#ajoutModal" >Ajouter</button>
         <div className="">
             <table className="table" >
@@ -127,42 +106,9 @@ function Affiche() {
             </table>
         </div>
 
-        <div className="border border-light-subtle border-2 shadow-sm rounded m-2 p-2 mt-3">
-            <div className="h5">Etats des materiel</div>
-                <form className="">
-
-                    <div className="row mb-1">
-                        <div className="col">
-                            <label for="Bon" className="form-label">Bon</label>
-                            
-                        </div>
-                        <div className="col">
-                            <input type="number" name="Bon" id="" value={Bon[0].quantite} className="form-control form-control-sm border border-black"/>
-                        </div>
-                    </div>
-
-                    <div className="row mb-1">
-                        <div className="col">
-                            <label for="Mauvais" className="form-label">Mauvais</label>
-                        </div>
-                        <div className="col">
-                            <input type="number" name="Mauvais" id="" value={Mauvais[0].quantiteMauvais} className="form-control form-control-sm border border-black"/>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col">
-                            <label for="abime" className="form-label">Abimé</label>
-                        </div>
-                        <div className="col">
-                            <input type="number" name="abime" id="" value={Abime[0].quantiteAbime} className="form-control form-control-sm border border-black"/>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
         </div>
+
+        
 
 
 

@@ -33,20 +33,20 @@ function Supprimer() {
     }
 
   return (
-    <div class="border border-light-subtle border-2 shadow-sm rounded m-2 p-2 mt-5" id="supprimerModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-2 border-light">
-                    <div class="h3"> Supprimer d'un materiel</div>
+    <div className="border border-danger border-2 shadow-sm rounded m-2  mt-5" id="supprimerModal">
+        <div className="modal-dialog">
+            <div className="modal-content">
+                <div className="modal-header border border-bottom-danger p-2">
+                    <div className="h3"> Supprimer d'un materiel</div>
                     <Link to={'/'} className="btn btn-primary ms-3">Retour</Link>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body p-2">
                     <form action="">
-                        <label for="Quantite" class="form-label h6"> N°Materiel </label>
-                        <input type="number" name="Quantite" id="" value={id} class="form-control"/>
+                        <label for="Quantite" className="form-label h6"> N°Materiel </label>
+                        <input type="number" name="Quantite" id="" value={id} className="form-control"/>
 
 
-                        <button type="button" class="btn btn-danger float-end mt-3" onClick={supprimerMateriel}>Supprimer</button>
+                        <button type="button" className="btn btn-danger float-end mt-3" onClick={supprimerMateriel}>Supprimer</button>
 
                     </form>
                 </div>

@@ -36,15 +36,15 @@ function Modifie() {
   }
 
   return (
-  <div className=" border border-light-subtle border-2 shadow-sm rounded m-2 p-2 mt-3" id="modifierModal">
+  <div className=" border border-success border-2 shadow-sm rounded m-2 mt-3" id="modifierModal">
     
             <div className="dialog">
             <div className="">
-                <div className="modal-header border-bottom border-2 border-light">
+                <div className="modal-header border-bottom border-2 border-success p-2">
                     <div className="h3"> Modifier d'un materiel</div>
                     <Link to={'/'} className="btn btn-primary ms-3">Retour</Link>
                 </div>              
-                <div className="body " >
+                <div className="body p-2" >
                     <form action="" onSubmit={modifierMateriel}>
       
                         <label for="Designation" className="form-label h6"> Designation </label>
@@ -55,14 +55,12 @@ function Modifie() {
                         
                         <label for="Quantite" className="form-label h6"> Quantité </label>
                         <input type="number" name="Quantite" id="" value={materielList.Quantite}  className="form-control" onChange={(event) =>{setQuantite(event.target.value)}}/>
+                        
                         </form>
                 </div>
   
-                <div className="footer">
+                <div className="footer border border-success">
                     <button type="submit" className="btn btn-success float-end mt-3" onClick={modifierMateriel}>Modifier</button>
-    
-                
-    
                 </div>
             </div>
         </div>
