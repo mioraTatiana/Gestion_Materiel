@@ -10,6 +10,11 @@ function Affiche() {
     const [Etat, setEtat] = useState('');
     const [Quantite, setQuantite] = useState(0);
     const [materielList, setmaterielList] = useState([]);
+    const [Bon, setBon] = useState([]);
+    const [Mauvais, setMauvais] = useState([]);
+    const [Abime, setAbime] = useState([]);
+    const [Somme, setSomme] = useState([]);
+
 
     const navigate = useNavigate();
    
@@ -24,7 +29,38 @@ function Affiche() {
             })
     }
 
-    
+    const etat = (async () =>{
+        axios.get('http://localhost:8081/select/somme', )
+        .then((res)=>{
+            setSomme(res.data);
+            console.log(res)
+        })
+        .catch(err => console.log(err));
+
+
+        axios.get('http://localhost:8081/selectBon/bon', )
+        .then((res)=>{
+            setBon(res.data);
+            console.log(res)
+        })
+        .catch(err => console.log(err));
+
+        axios.get('http://localhost:8081/requette/mauvais', )
+        .then((res)=>{
+            setMauvais(res.data);
+            console.log(res)
+        })
+        .catch(err => console.log(err));
+
+        axios.get('http://localhost:8081/query/abime', )
+        .then((res)=>{
+            setAbime(res.data);
+            console.log(res)
+        })
+        .catch(err => console.log(err));
+
+
+    })
 
         
     useEffect(()=>{
@@ -34,6 +70,8 @@ function Affiche() {
             console.log(res)
         })
         .catch(err => console.log(err));
+
+        etat();
 
 
     },[])
@@ -106,6 +144,74 @@ function Affiche() {
             </table>
         </div>
 
+        </div>
+
+        <div id="tableau" className="border border-light-subtle border-2 shadow-lg rounded  p-2 mt-3">
+            <h2 className='h2'>Etats des materiels:</h2>
+            <div>
+                <table className='table'>
+                    <thead>
+                        <th className= 'h4'>Somme</th>
+                    </thead>
+                    <tbody>
+                        {Somme.map((sum, index) =>{
+                            return <tr key={index}>
+                            <td className= 'h6'>{sum.somme}</td>
+                        </tr>
+                        })}
+                    </tbody>
+                    
+                </table>
+
+            </div>
+
+            <div>
+                <table className='table'>
+                    <thead>
+                        <th className= 'h4'>Bon</th>
+                    </thead>
+                    <tbody>
+                        {Bon.map((etat1, index) =>{
+                            return <tr key={index}>
+                            <td className= 'h6'>{etat1.quantite}</td>
+                        </tr>
+                        })}
+                    </tbody>
+                    
+                </table>
+            </div>
+
+            <div>
+                <table className='table'>
+                    <thead>
+                        <th className= 'h4'>Mauvais</th>
+                    </thead>
+                    <tbody>
+                        {Mauvais.map((etat1, index) =>{
+                        return  <tr key={index}>
+                        <td className= 'h6'>{etat1.quantiteMauvais}</td>
+                    </tr>
+                        })}
+                    </tbody>
+                    
+                </table>
+            </div>
+
+            <div>
+                <table className='table'>
+                    <thead>
+                        <th className= 'h4'>Abime</th>
+                    </thead>
+                    <tbody>
+                        {Abime.map((etat1, index) =>{
+                            return <tr key={index}>
+                            <td className= 'h6'>{etat1.quantiteAbime}</td>
+                        </tr>
+                        })}
+                    </tbody>
+                    
+                </table>
+            </div>
         </div>
 
         

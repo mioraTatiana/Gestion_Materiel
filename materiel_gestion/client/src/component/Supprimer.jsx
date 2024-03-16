@@ -36,15 +36,15 @@ function Supprimer() {
     <div className="border border-danger border-2 shadow-sm rounded m-2  mt-5" id="supprimerModal">
         <div className="modal-dialog">
             <div className="modal-content">
-                <div className="modal-header border border-bottom-danger p-2">
-                    <div className="h3"> Supprimer d'un materiel</div>
-                    <Link to={'/'} className="btn btn-primary ms-3">Retour</Link>
+                <div className="modal-header border border-bottom-danger p-2 bg-danger">
+                    <div className="h3"> Supprimer un materiel</div>
                 </div>
                 <div className="modal-body p-2">
                     <form action="">
                         <label for="Quantite" className="form-label h6"> N°Materiel </label>
                         <input type="number" name="Quantite" id="" value={id} className="form-control"/>
 
+                        <Link to={'/'} className="btn btn-primary mt-3 float-start">Retour</Link>
 
                         <button type="button" className="btn btn-danger float-end mt-3" onClick={supprimerMateriel}>Supprimer</button>
 

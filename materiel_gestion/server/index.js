@@ -22,6 +22,15 @@ app.get("/", (req, res) => {
     })
 })
 
+app.get("/select/somme", (req, res) => {
+    const sql =" SELECT SUM(Quantite) as somme FROM materiel";
+    db.query(sql, (err, data) => {
+        if(err) return res.json(err)
+        return res.send(data );
+    })
+})
+
+
 app.get("/selection/:numMateriel", (req, res) => {
     const numMateriel = req.params.numMateriel;
     const sql =" SELECT * FROM materiel WHERE numMateriel =?";

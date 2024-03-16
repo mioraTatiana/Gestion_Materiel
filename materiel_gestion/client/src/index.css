@@ -11,6 +11,26 @@ body {
   padding-top: 0%;
 }
 
+#tableau{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 20%;
+  
+}
+
+.divisionGrande{
+  display: flex;
+  flex-direction:column;
+}
+.division{
+  height: 50%;
+}
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
